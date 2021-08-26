@@ -9,13 +9,16 @@ class Country(models.Model):
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
     type = models.CharField(max_length=50, blank=False, default='Country', editable=False)
 
+    class Meta:
+        verbose_name_plural = "Countries"
+
     def __str__(self):
 	    return self.name
 
 
 class Region(models.Model):
     """Class model for Regions - second level"""
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, verbose_name='Countries')
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=False, unique=True)
     latitude = models.DecimalField(max_digits=11, decimal_places=8)
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
@@ -32,6 +35,9 @@ class City(models.Model):
     latitude = models.DecimalField(max_digits=11, decimal_places=8)
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
     type = models.CharField(max_length=50, blank=False, default='City', editable=False)
+    
+    class Meta:
+        verbose_name_plural = "Cities"
 
     def __str__(self):
 	    return self.name

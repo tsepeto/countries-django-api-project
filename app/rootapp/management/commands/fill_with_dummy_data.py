@@ -7,9 +7,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         #Creating countries
-        Country.objects.all().delete()
-        Region.objects.all().delete()
-        City.objects.all().delete()
         greece = Country.objects.create(
                         name="Greece",
                         latitude=38.2749497,
@@ -80,4 +77,4 @@ class Command(BaseCommand):
             latitude = 48.85670,
             longitude = 2.35146
         )
-        self.stdout.write(self.style.SUCCESS('The virtual data were created!'))
+        self.stdout.write(self.style.SUCCESS('The dummy data were created!'))
