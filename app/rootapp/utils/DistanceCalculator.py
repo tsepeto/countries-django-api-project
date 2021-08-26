@@ -13,22 +13,16 @@ class DistanceCalculator():
             link:
             https://www.kite.com/python/answers/how-to-find-the-distance-between-two-lat-long-coordinates-in-python
         """
-
         # Radius of the Earth
         R = 6373.0
-
-
         # Coordinates
         latA = math.radians(modelA.latitude)
         lonA = math.radians(modelA.longitude)
-
         latB = math.radians(modelB.latitude)
         lonB = math.radians(modelB.longitude)
-
         # Change in coordinates
         dlat = latB - latA
         dlon = lonB - lonA
-
         # Haversine formula
         a = math.sin(dlat/2)**2 + math.cos(latA) * math.cos(latB) * math.sin(dlon / 2)**2
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
